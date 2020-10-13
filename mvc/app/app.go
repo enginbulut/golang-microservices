@@ -2,7 +2,6 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 var (
@@ -16,7 +15,7 @@ func init() {
 func StartApp() {
 	mapUrls()
 
-	if err := http.ListenAndServe(":1299", nil); err != nil {
+	if err := router.Run(":8080"); err != nil {
 		panic(err)
 	}
 }
